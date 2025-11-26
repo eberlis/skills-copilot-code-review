@@ -54,13 +54,13 @@ jobs:
           file: exercise-toolkit/markdown-templates/step-feedback/checking-work.md
           edit-mode: replace
 
-      # Check if copilot-instructions.md exists
-      - name: Check if copilot-instructions.md file exists
+      # Check if copilot-instructions.instructions.md exists
+      - name: Check if copilot-instructions.instructions.md file exists
         id: check-copilot-instructions
         continue-on-error: true
         uses: skills/exercise-toolkit/actions/file-exists@v0.7.0
         with:
-          file: .github/copilot-instructions.md
+          file: .github/copilot-instructions.instructions.md
 
       # Check if frontend instructions file exists
       - name: Check if frontend instructions file exists
@@ -89,7 +89,7 @@ jobs:
           vars: |
             step_number: 3
             results_table:
-              - description: "Created copilot-instructions.md file"
+              - description: "Created copilot-instructions.instructions.md file"
                 passed: ${{ steps.check-copilot-instructions.outcome == 'success' }}
               - description: "Created frontend-specific instructions file"
                 passed: ${{ steps.check-frontend-instructions.outcome == 'success' }}
